@@ -23,7 +23,7 @@ public class CommentServiceImpI implements CommentService{
 
     @Override
     public String save(String id, String Nickname, Comment.Request request) {
-        User user = userRepository.findNickNameBy();
+        User user = userRepository.findByNickName(Nickname);
         Post posts = postsRepository.findById(id).orElseThrow(() ->
                 new IllegalArgumentException("댓글 쓰기 실패: 해당 게시글이 존재하지 않습니다. " + Nickname));
 

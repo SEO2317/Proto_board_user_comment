@@ -28,7 +28,7 @@ public class UserServiceImpI implements UserService{
     @Override
     public User loginUser(User.Request request) {
 
-        return userRepository.findNickNameBy();
+        return userRepository.findByNickName(request.getNickName());
     }
 
     @Override

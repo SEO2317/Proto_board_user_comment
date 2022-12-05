@@ -48,8 +48,8 @@ public class UserApi {
 
         String token = jwtTokenProvider.makeJwtToken(request);
 
-        User user = userRepository.findByNickName(Nickname); //수정
-        
+        User user = userRepository.findByNickName(request.getNickName()); //수정
+
         User.Response responseData = User.Response.toResponse(user);
         responseData.setToken(token);
         return ResponseEntity.ok().body(responseData);
